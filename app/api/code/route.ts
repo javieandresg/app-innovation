@@ -4,8 +4,6 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import Groq from "groq-sdk";
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-
 const systemMessage = {
   role: "system" as const,
   content: "You are a code generator. You must answer only in markdown code snippets. Use code comments for explanations.",
@@ -26,6 +24,7 @@ export async function POST(req: Request) {
     }
 
     if (!messages) {
+
       return new NextResponse("Missing messages", { status: 400 });
     }
 
@@ -36,6 +35,7 @@ export async function POST(req: Request) {
       return new NextResponse("API Limit Exceeded", { status: 403 });
     }
 
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
     const response = await groq.chat.completions.create({
       model: "qwen/qwen3.8-27b",
       messages: [systemMessage, ...messages],

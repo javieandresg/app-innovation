@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import Groq from "groq-sdk";
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-
 const systemPrompt = `You are a helpful assistant for innovation.ia, an AI platform built for content creators.
 
 About innovation.ia:
@@ -24,6 +22,7 @@ Always mention the free trial when relevant.`;
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
     const response = await groq.chat.completions.create({
       model: "qwen/qwen3.8-27b",
