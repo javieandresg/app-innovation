@@ -37,7 +37,7 @@ const TermsPage = () => {
 
         <div>
           <h2 className="text-white font-semibold text-base mb-2">7. Limitation of Liability</h2>
-          <p>innovation.ia is provided "as is" without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages arising from your use of the platform.</p>
+          <p>innovation.ia is provided &quot;as is&quot; without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages arising from your use of the platform.</p>
         </div>
 
         <div>

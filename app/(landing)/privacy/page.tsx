@@ -13,16 +13,17 @@ const PrivacyPage = () => {
         <div>
           <h2 className="text-white font-semibold text-base mb-2">2. How We Use Your Information</h2>
           <p>We use your information to provide and improve the platform, process payments, send service-related communications, and ensure platform security. We do not sell your personal data to third parties.</p>
+
         </div>
 
         <div>
           <h2 className="text-white font-semibold text-base mb-2">3. Payment Information</h2>
-          <p>Payments are processed by Paddle. We do not store your credit card or payment information. Please refer to Paddle's privacy policy for details on how payment data is handled.</p>
+          <p>Payments are processed by Paddle. We do not store your credit card or payment information. Please refer to Paddle&apos;s privacy policy for details on how payment data is handled.</p>
         </div>
 
         <div>
           <h2 className="text-white font-semibold text-base mb-2">4. Authentication</h2>
-          <p>Authentication is handled by Clerk. Your login credentials are managed securely by Clerk. Please refer to Clerk's privacy policy for details.</p>
+          <p>Authentication is handled by Clerk. Your login credentials are managed securely by Clerk. Please refer to Clerk&apos;s privacy policy for details.</p>
         </div>
 
         <div>
