@@ -4,10 +4,6 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import Replicate from "replicate";
 
-const replicate = new Replicate({
-  auth: process.env.REPLICATE_API_TOKEN!,
-});
-
 export async function POST(req: Request) {
   try {
     const { userId } = auth();
@@ -21,6 +17,10 @@ export async function POST(req: Request) {
     if (!process.env.REPLICATE_API_TOKEN) {
       return new NextResponse("Replicate API token not configured", { status: 500 });
     }
+
+    const replicate = new Replicate({
+      auth: process.env.REPLICATE_API_TOKEN,
+    });
 
     if (!prompt) {
       return new NextResponse("Prompt is required", { status: 400 });
