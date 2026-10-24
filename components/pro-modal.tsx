@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
@@ -23,8 +24,16 @@ export const ProModal = () => {
     { label: "Code Generation", icon: Code, color: "text-green-700", bgColor: "bg-green-700/10" },
   ];
 
-  const onSubscribe = () => {
-    toast("Payments coming soon. Stay tuned!", { icon: "🚀" });
+  const onSubscribe = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get("/api/paypal");
+      window.location.href = response.data.url;
+    } catch (error) {
+      toast.error("Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -55,7 +64,7 @@ export const ProModal = () => {
         </DialogHeader>
         <DialogFooter>
           <Button disabled={loading} size="lg" variant="premium" className="w-full" onClick={onSubscribe}>
-            Upgrade <Zap className="w-4 h-4 ml-2 fill-white" />
+            Upgrade with PayPal <Zap className="w-4 h-4 ml-2 fill-white" />
           </Button>
         </DialogFooter>
       </DialogContent>
