@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-// innovation.ia v3
+// innovation.ia v4
 const nextConfig = {
 	images: {
 		domains: [
