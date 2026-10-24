@@ -8,6 +8,14 @@ const nextConfig = {
 			"pbxt.replicate.delivery",
 		],
 	},
+	async rewrites() {
+		return [
+			{
+				source: "/__clerk/:path*",
+				destination: "https://clerk.app-innovation-25oc-javierandres751-5414s-projects.vercel.app/:path*",
+			},
+		];
+	},
 };
 
 module.exports = nextConfig;
