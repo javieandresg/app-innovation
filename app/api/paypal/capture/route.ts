@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+
+export const dynamic = 'force-dynamic';
+
 import { getPayPalSubscription } from "@/lib/paypal";
 import prismadb from "@/lib/prismadb";
 
